@@ -1,0 +1,42 @@
+.page {
+    &-name {
+        width: 100%;
+        height: 360px;
+        background-color: rgba($color: #1e1e1e, $alpha: 0.5);
+        background-image: url('https://images.pexels.com/photos/263168/pexels-photo-263168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-blend-mode: multiply;
+        padding: 16px 0;
+        display: flex;
+        align-items: flex-end;
+
+        &-title {
+            @include title($color: #fff);
+            font-size: 56px;
+            margin-bottom: 0;
+        }
+
+        &-breadcrumbs {
+            @include title($color: #fff);
+            font-family: $swiss-lt;
+            text-transform: unset;
+            font-size: 20px;
+
+            &-link {
+                color: $yellow;
+                transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+                &:hover {
+                    text-decoration: none;
+                    color: #1e1e1e;
+                }
+            }
+        }
+    }
+
+    &-content {
+        padding: 64px 0;
+    }
+}

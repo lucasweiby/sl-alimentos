@@ -1,0 +1,225 @@
+.navbar {
+    background-color: $yellow;
+    padding: 32px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    .row {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    //Sandwich icon
+    .menu {
+        width: 30px;
+        height: 20px;
+        position: relative;
+        transition: all .5s ease;
+        transform-origin: center;
+        cursor: pointer;
+        z-index: 9999;
+        
+        div {
+            height: calc((64px / 3) - 19px);
+            width: 100%;
+            background-color: #fff;
+            position: absolute;
+            
+            &:nth-child(1) {
+                top: 0;
+                transition: all .5s ease;
+            }
+            
+            &:nth-child(2) {
+                bottom: 50%;
+                transform: translateY(50%) scaleX(1);
+                transition: all .5s ease;
+            }
+            
+            &:nth-child(3) {
+                bottom: 0;
+                transition: all .5s ease;
+            }
+        }
+
+        // &:hover {
+        //     div {
+        //         background-color: #B26E2B;
+        //     }
+        // }
+    }
+
+    //Sandwich icon after click
+    .open {
+        transform: rotate(180deg);
+        
+        div {
+            &:nth-child(1) {
+                top: 48%;
+                transform: rotate(45deg) translateY(-50%);
+            }
+            
+            &:nth-child(2) {
+                bottom: 50%;
+                transform: scaleX(0);
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            &:nth-child(3) {
+                bottom: 50%;
+                transform: rotate(-45deg) translateY(50%);
+            }
+        }
+    }
+
+    &-brand {
+        background-color: #fff;
+        width: 156px;
+        height: 156px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba($color: #1e1e1e, $alpha: 0.2);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        transform: translate(-50%, -15%);
+
+        &-img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &-right-side {
+        display: flex;
+        position: relative;
+        z-index: 9999;
+    }
+
+    &-sociais {
+        margin-bottom: 0;
+        margin-right: 32px;
+        list-style: none;
+        padding: 0;
+        display: flex;
+
+        &-link {
+            color: #fff;
+            transition: all .2s ease-in-out;
+
+            &:not(:last-child) {
+                margin-right: 16px;
+            }
+
+            &:hover {
+                color: $brown;
+            }
+        }
+    }
+}
+
+.menu-collapse {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: $brown, $alpha: 1);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+
+    &::after {
+        content: " ";
+        background-image: url('../assets/img/trigo@2x.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        bottom: -2%;
+        left: 50%;
+        transform: translateX(-50%);
+        mix-blend-mode: multiply;
+        opacity: 50%;
+    }
+
+    &-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        position: relative;
+        z-index: 90;
+
+        .menu-item {
+            position: relative;
+
+            .sub-menu {
+                // display: none;
+                position: absolute;
+                left: calc(100% + 32px);
+                top: 0;
+                background-color: #fff;
+                padding: 32px;
+                min-width: 256px;
+                list-style: none;
+                margin: 0;
+                text-align-last: left;
+                box-shadow: 0 0 10px rgba($color: #1e1e1e, $alpha: 0.2);
+                border-bottom: 4px solid $yellow;
+                transform: scaleY(0);
+                transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+                &::before {
+                    content: " ";
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    position: absolute;
+                    top: 32px;
+                    left: 0;
+                    transform: rotate(45deg) translateX(-50%);
+                }
+
+                .menu-link {
+                    color: $brown;
+                    font-size: 20px;
+
+                    &:hover {
+                        color: $yellow;
+                    }
+                }
+            }
+
+            &:hover {
+                .sub-menu {
+                    // display: block;
+                    transform: scaleY(1);
+                }
+            } 
+        }
+
+        .menu-link {
+            @include title($color: #fff);
+            font-size: 48px;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                color: $yellow;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.collapsed {
+    left: 0;
+    opacity: 1;
+}

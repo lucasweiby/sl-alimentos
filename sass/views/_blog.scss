@@ -1,0 +1,56 @@
+.blog {
+    padding: 64px 0;
+
+    .card {
+        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+        border-radius: 0;
+        border: none;
+        transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        .row {
+            height: 100%;
+        }
+
+        &-thumb {
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &-title {
+            @include title;
+            text-transform: unset;
+            font-size: 24px;
+            margin-bottom: 0;
+            line-height: 1;
+        }
+
+        &-meta {
+            @include title;
+            font-family: $swiss-lt;
+            color: #aaa;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        &-text {
+            @include text($weight: 300);
+            color: #1e1e1e;
+            line-height: 1;
+        }
+
+        &-body {
+            padding: 32px;
+        }
+
+        &:hover {
+            transform: scale(1.005);
+            box-shadow: 0 0 16px rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+
+    .card-hor {
+        height: 48%;
+    }
+}

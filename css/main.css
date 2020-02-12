@@ -1,0 +1,586 @@
+@import url("../assets/fonts/Swiss-2/stylesheet.css");
+@import url("../assets/fonts/Abhaya_Libre/stylesheet.css");
+.navbar {
+  background-color: #FDBC00;
+  padding: 32px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .row {
+  width: 100%;
+  justify-content: space-between;
+}
+.navbar .menu {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  transition: all 0.5s ease;
+  transform-origin: center;
+  cursor: pointer;
+  z-index: 9999;
+}
+.navbar .menu div {
+  height: calc((64px / 3) - 19px);
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+}
+.navbar .menu div:nth-child(1) {
+  top: 0;
+  transition: all 0.5s ease;
+}
+.navbar .menu div:nth-child(2) {
+  bottom: 50%;
+  transform: translateY(50%) scaleX(1);
+  transition: all 0.5s ease;
+}
+.navbar .menu div:nth-child(3) {
+  bottom: 0;
+  transition: all 0.5s ease;
+}
+.navbar .open {
+  transform: rotate(180deg);
+}
+.navbar .open div:nth-child(1) {
+  top: 48%;
+  transform: rotate(45deg) translateY(-50%);
+}
+.navbar .open div:nth-child(2) {
+  bottom: 50%;
+  transform: scaleX(0);
+  opacity: 0;
+  visibility: hidden;
+}
+.navbar .open div:nth-child(3) {
+  bottom: 50%;
+  transform: rotate(-45deg) translateY(50%);
+}
+.navbar-brand {
+  background-color: #fff;
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(30, 30, 30, 0.2);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  transform: translate(-50%, -15%);
+}
+.navbar-brand-img {
+  width: 100%;
+  height: auto;
+}
+.navbar-right-side {
+  display: flex;
+  position: relative;
+  z-index: 9999;
+}
+.navbar-sociais {
+  margin-bottom: 0;
+  margin-right: 32px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+.navbar-sociais-link {
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.navbar-sociais-link:not(:last-child) {
+  margin-right: 16px;
+}
+.navbar-sociais-link:hover {
+  color: #B26E2B;
+}
+
+.menu-collapse {
+  width: 100%;
+  height: 100vh;
+  background-color: #b26e2b;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+}
+.menu-collapse::after {
+  content: " ";
+  background-image: url("../assets/img/trigo@2x.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  bottom: -2%;
+  left: 50%;
+  transform: translateX(-50%);
+  mix-blend-mode: multiply;
+  opacity: 50%;
+}
+.menu-collapse-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 90;
+}
+.menu-collapse-list .menu-item {
+  position: relative;
+}
+.menu-collapse-list .menu-item .sub-menu {
+  position: absolute;
+  left: calc(100% + 32px);
+  top: 0;
+  background-color: #fff;
+  padding: 32px;
+  min-width: 256px;
+  list-style: none;
+  margin: 0;
+  text-align-last: left;
+  box-shadow: 0 0 10px rgba(30, 30, 30, 0.2);
+  border-bottom: 4px solid #FDBC00;
+  transform: scaleY(0);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.menu-collapse-list .menu-item .sub-menu::before {
+  content: " ";
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  transform: rotate(45deg) translateX(-50%);
+}
+.menu-collapse-list .menu-item .sub-menu .menu-link {
+  color: #B26E2B;
+  font-size: 20px;
+}
+.menu-collapse-list .menu-item .sub-menu .menu-link:hover {
+  color: #FDBC00;
+}
+.menu-collapse-list .menu-item:hover .sub-menu {
+  transform: scaleY(1);
+}
+.menu-collapse-list .menu-link {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 48px;
+  transition: all 0.2s ease-in-out;
+}
+.menu-collapse-list .menu-link:hover {
+  color: #FDBC00;
+  text-decoration: none;
+}
+
+.collapsed {
+  left: 0;
+  opacity: 1;
+}
+
+.home {
+  position: relative;
+  z-index: 0;
+}
+.home-slider {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.home-slider-slide {
+  background-image: url("../assets/img/b1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 600px;
+}
+
+.brands {
+  padding: 64px 0;
+}
+
+.fast-access {
+  padding: 32px 0 64px;
+}
+.fast-access .card {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 0;
+  border: 1px solid #B26E2B;
+  min-height: 94px;
+}
+.fast-access .col-4 {
+  display: flex;
+  justify-content: center;
+}
+.fast-access .col-8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.fast-access-title {
+  font-family: "Swis721 Cn BT";
+  color: #B26E2B;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  display: block;
+}
+.fast-access-link {
+  font-family: "Swis721 Cn BT";
+  color: #FDBC00;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 12px;
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+.fast-access-icon {
+  height: 56px;
+}
+
+.about {
+  background-color: #FDBC00;
+}
+.about-thumb {
+  background-image: url("https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 100%;
+}
+.about-content {
+  padding: 64px 48px;
+}
+.about-title {
+  font-family: "Swis721 Cn BT";
+  color: #B26E2B;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+.about-text {
+  font-family: "Abhaya Libre";
+  color: #B26E2B;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.blog {
+  padding: 64px 0;
+}
+.blog .card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.blog .card .row {
+  height: 100%;
+}
+.blog .card-thumb {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.blog .card-title {
+  font-family: "Swis721 Cn BT";
+  color: #B26E2B;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-transform: unset;
+  font-size: 24px;
+  margin-bottom: 0;
+  line-height: 1;
+}
+.blog .card-meta {
+  font-family: "Swis721 Cn BT";
+  color: #B26E2B;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Swis721 LtCn BT";
+  color: #aaa;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.blog .card-text {
+  font-family: "Abhaya Libre";
+  color: #B26E2B;
+  font-weight: 300;
+  color: #1e1e1e;
+  line-height: 1;
+}
+.blog .card-body {
+  padding: 32px;
+}
+.blog .card:hover {
+  transform: scale(1.005);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+}
+.blog .card-hor {
+  height: 48%;
+}
+
+.footer {
+  padding: 64px 0;
+  background-color: #5A7A7F;
+  position: relative;
+}
+.footer::after {
+  content: " ";
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url("../assets/img/trigo-verde@2x.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+}
+.footer .container {
+  position: relative;
+  z-index: 10;
+}
+.footer .container .row-top {
+  border-bottom: 1px solid #fff;
+}
+@media screen and (min-width: 1200px) and (max-width: 1520px) {
+  .footer .container .row-top {
+    padding-bottom: 16px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .footer .container .row-top {
+    padding-bottom: 16px;
+  }
+}
+@media screen and (min-width: 1520px) {
+  .footer .container .row-top {
+    padding-bottom: 16px;
+  }
+}
+@media screen and (min-width: 1200px) and (max-width: 1520px) {
+  .footer .container .row-bottom {
+    padding: 24px 0;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .footer .container .row-bottom {
+    padding: 24px 0;
+  }
+}
+@media screen and (min-width: 1520px) {
+  .footer .container .row-bottom {
+    padding: 24px 0;
+  }
+}
+.footer .container .row-copy {
+  border-top: 1px solid #fff;
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Swis721 LtCn BT";
+  font-size: 14px;
+  text-transform: unset;
+}
+.footer .container .row-copy-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.footer .container .row-copy a {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  margin-left: 4px;
+}
+.footer .container .row-copy a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+@media screen and (min-width: 1200px) and (max-width: 1520px) {
+  .footer .container .row-copy {
+    padding-top: 16px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .footer .container .row-copy {
+    padding-top: 16px;
+  }
+}
+@media screen and (min-width: 1520px) {
+  .footer .container .row-copy {
+    padding-top: 16px;
+  }
+}
+.footer-contact-title {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Swis721 LtCn BT";
+  margin-bottom: 0;
+}
+.footer-contact-phone {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+.footer-contact-mail {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-transform: unset;
+  font-family: "Swis721 LtCn BT";
+}
+.footer-social {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.footer-social-link {
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.footer-social-link:not(:last-child) {
+  margin-right: 16px;
+}
+.footer-social-link:hover {
+  font-size: 18px;
+  color: #fff;
+}
+.footer-menu-title {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.footer-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-menu-list-link {
+  color: #fff;
+  font-family: "Swis721 LtCn BT";
+  font-weight: normal;
+  position: relative;
+  left: 0;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.footer-menu-list-link:hover {
+  left: 8px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.page-name {
+  width: 100%;
+  height: 360px;
+  background-color: rgba(30, 30, 30, 0.5);
+  background-image: url("https://images.pexels.com/photos/263168/pexels-photo-263168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: multiply;
+  padding: 16px 0;
+  display: flex;
+  align-items: flex-end;
+}
+.page-name-title {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 56px;
+  margin-bottom: 0;
+}
+.page-name-breadcrumbs {
+  font-family: "Swis721 Cn BT";
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Swis721 LtCn BT";
+  text-transform: unset;
+  font-size: 20px;
+}
+.page-name-breadcrumbs-link {
+  color: #FDBC00;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.page-name-breadcrumbs-link:hover {
+  text-decoration: none;
+  color: #1e1e1e;
+}
+.page-content {
+  padding: 64px 0;
+}
+
+.title-box {
+  padding: 8px 0;
+  border-bottom: 1px solid #B26E2B;
+  position: relative;
+  margin-bottom: 32px;
+}
+.title-box::before {
+  content: " ";
+  width: 16%;
+  height: 6px;
+  background-color: #FDBC00;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.title-box-title {
+  font-family: "Swis721 Cn BT";
+  color: #B26E2B;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.button-link {
+  padding: 8px;
+  width: 256px;
+  border: 1px solid #B26E2B;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Swis721 Cn BT";
+  color: #B26E2B;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+}
+.button-link:hover {
+  background-color: #fff;
+  border-color: #fff;
+  text-decoration: none;
+  color: #B26E2B;
+}
+
+/*# sourceMappingURL=main.css.map */

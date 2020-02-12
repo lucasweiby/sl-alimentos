@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'mixins';
+
+//Views
+@import 'views/nav';
+@import 'views/home';
+@import 'views/brands';
+@import 'views/fast-access';
+@import 'views/about';
+@import 'views/blog';
+@import 'views/footer';
+
+//Pages
+@import 'model';
+
+.title-box {
+    padding: 8px 0;
+    border-bottom: 1px solid $brown;
+    position: relative;
+    margin-bottom: 32px;
+
+    &::before {
+        content: " ";
+        width: 16%;
+        height: 6px;
+        background-color: $yellow;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    
+    &-title {
+        @include title;
+    }
+}
+
+.button-link {
+    padding: 8px;
+    width: 256px;
+    border: 1px solid $brown;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    @include title;
+    font-size: 18px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background-color: #fff;
+        border-color: #fff;
+        text-decoration: none;
+        color: $brown;
+    }
+}

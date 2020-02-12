@@ -1,0 +1,29 @@
+.about {
+    background-color: $yellow;
+
+    &-thumb {
+        background-image: url('https://images.pexels.com/photos/257700/pexels-photo-257700.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: auto;
+        width: 100%;
+    }
+
+    &-content {
+        padding: 64px 48px;
+    }
+
+    &-title {
+        @include title;
+        font-size: 48px;
+        margin: 0;
+        margin-bottom: 16px;
+    }
+
+    &-text {
+        @include text;
+        font-size: 18px;
+        // margin-bottom: 0;
+    }
+}
